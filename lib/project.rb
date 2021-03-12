@@ -31,6 +31,17 @@ class Project
     DB.exec("DELETE FROM projects *;")
   end
 
+  def self.find(id)
+    project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
+    if project
+      name = project.fetch("name")
+      id = project.fetch("id").to_i
+      Project.new({:name => name, :id => id})
+    else
+      nil
+    end
+  end
+
 
 
 end
