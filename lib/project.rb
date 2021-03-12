@@ -42,6 +42,24 @@ class Project
     end
   end
 
+  def update(name, id)
+    @name = name
+    @id = id
+    DB.exec("UPDATE projects SET name = '#{@name}' WHERE id = #{@id};")
+  end
 
+  def delete
+    DB.exec("DELETE FROM projects WHERE id = #{@id};")
+  end
 
+  def self.name
+    result = DB.exec("SELECT * FROM projects WHERE id = #{@id};")
+    name = result.first.fetch("name")
+    name
+  end
+
+  def self.id
+    result = DB.exec("SELECT * FROM projects WHERE id = #{@id}")
+    id = result.first.fetch("id").to_i
+  end
 end
