@@ -27,4 +27,10 @@ class Project
     self.name() == project_to_compare.name()
   end
 
+  def self.clear
+    DB.exec("DELETE FROM projects *;")
+  end
+
+
+
 end
