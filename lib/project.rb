@@ -20,7 +20,7 @@ class Project
 
   def save
     result = DB.exec("INSERT INTO projects (name) VALUES ('#{@name}') RETURNING id;")
-    @id = result.first().fetch("id").to_i
+    @id = result.first["id"].to_i
   end
 
   def ==(project_to_compare)
@@ -34,17 +34,16 @@ class Project
   def self.find(id)
     project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
     if project
-      name = project.fetch("name")
-      id = project.fetch("id").to_i
+      name = project["name"]
+      id = project["id"].to_i
       Project.new({:name => name, :id => id})
     else
       nil
     end
   end
 
-  def update(name, id)
+  def update(name)
     @name = name
-    @id = id
     DB.exec("UPDATE projects SET name = '#{@name}' WHERE id = #{@id};")
   end
 
@@ -54,13 +53,13 @@ class Project
 
   def self.name
     result = DB.exec("SELECT * FROM projects WHERE id = #{@id};")
-    name = result.first.fetch("name")
+    name = result.first["name"]
     name
   end
 
   def self.id
     result = DB.exec("SELECT * FROM projects WHERE id = #{@id}")
-    id = result.first.fetch("id").to_i
+    id = result.first["id"].to_i
   end
 
   def volunteers

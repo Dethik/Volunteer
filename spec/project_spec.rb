@@ -73,14 +73,15 @@ describe Project do
     end
   end
 
-  # describe '#update' do
-  #   it 'allows a user to update a project' do
-  #     project = Project.new({:name => 'Teaching Kids to Code', :id => nil})
-  #     project.save
-  #     project.update({:name => 'Teaching Ruby to Kids', :id => nil})
-  #     expect(project.name).to eq 'Teaching Ruby to Kids'
-  #   end
-  # end
+  describe '#update' do
+    it 'allows a user to update a project' do
+      project = Project.new({:name => 'Teaching Kids to Code', :id => nil})
+      project.save
+      project.update('Teaching Ruby to Kids')
+      binding.pry
+      expect(project.name).to eq 'Teaching Ruby to Kids'
+    end
+  end
 
   context '#delete' do
     it 'allows a user to delete a project' do
