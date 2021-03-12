@@ -28,7 +28,7 @@ post('/projects') do
   name = params[:project_name]
   project = Project.new({:name => name, :id => nil})
   project.save()
-
+  # binding.pry
   redirect to('/projects')
 end
 
@@ -47,7 +47,6 @@ patch('/projects/:id') do
   @project.update(params[:name], params[:id])
   redirect to('/projects')
 end
-
 
 delete('/projects/:id') do
   @project = Project.find(params[:id].to_i)
