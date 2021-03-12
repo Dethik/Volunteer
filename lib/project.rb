@@ -62,4 +62,8 @@ class Project
     result = DB.exec("SELECT * FROM projects WHERE id = #{@id}")
     id = result.first.fetch("id").to_i
   end
+
+  def volunteers
+    Volunteer.find_by_volunteer(self.id)
+  end
 end
