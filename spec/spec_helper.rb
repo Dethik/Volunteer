@@ -5,6 +5,8 @@ require "pry"
 require "pg"
 require "spec_pass"
 
+DB = PG.connect({:dbname => 'volunteer_tracker_test', :password => 'epicodus'})
+
 RSpec.configure do |config|
   config.after(:each) do
     DB.exec('DELETE FROM volunteers *;')

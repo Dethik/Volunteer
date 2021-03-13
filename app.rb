@@ -7,6 +7,8 @@ require './lib/volunteer'
 require './lib/project'
 also_reload 'lib/**/*.rb'
 
+DB = PG.connect({:dbname => 'volunteer_tracker', :password => 'epicodus'})
+
 get('/') do
   redirect to('/tracker')
 end
@@ -78,10 +80,4 @@ delete('/projects/:id/volunteers/:volunteer_id') do
   volunteer.delete
   @project = Project.find(params[:id].to_i())
   erb(:project)
-end
-
-get('/volunteers') do
-  @volunteer = Volunteer.all
-  @project = Project.find(params[:id].to_i())
-  erb(:volunteers)
 end

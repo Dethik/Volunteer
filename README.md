@@ -1,10 +1,10 @@
-# Record Store
+# Volunteer Trackers Anonymous
 #### *Created By: Zack Rutledge*
 
 ## Description
-This is an application for learning databases with ruby while attending Epicodus coding school. This app Might be un finished and does not represent my class mates or my own coding knowledge.
+This is an application to keep track of various Projects and Volunteer employees associated with these projects.
 
-![Diagram Example](/public/img/schema.png)
+![Diagram Example](/public/img/Diagram.jpg)
 
 * * *
 
@@ -85,13 +85,13 @@ code .
 
 ``` bash
 gem install bundler
-
 ```
-* then type
 
+* then type
 ``` bash
 bundle install
 ```
+
 * Then from the terminal you can run logical code through the terminal by typing
 ```bash
 ruby "file goes here (no quotes)"
