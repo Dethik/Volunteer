@@ -2,8 +2,11 @@
 #### *Created By: Zack Rutledge*
 
 ## Description
-This is an application to keep track of various Projects and Volunteer employees associated with these projects.
+This is an application to keep track of various Projects and Volunteer employees associated with these projects.<br>
+It utilizes Ruby and SQL database servers to create an enviroment and track the information.
 
+The Database's Table Structure is displayed below:
+<br>
 ![Diagram Example](/public/img/Diagram.jpg)
 
 * * *
@@ -28,7 +31,10 @@ This is an application to keep track of various Projects and Volunteer employees
 
 ## Installation :
 
+* **Ensure you have PostgreSQL installed correctly.**
+
 * Go to (https://github.com/Dethik/Volunteer).
+
 * Navigate to the code button on the github website.
 
 * Click on the code button to open the menu.
