@@ -2,12 +2,11 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 require 'pg'
-require './volunteer_db'
 require './lib/volunteer'
 require './lib/project'
 also_reload 'lib/**/*.rb'
 
-DB = PG.connect({:dbname => 'volunteer_tracker', :password => 'epicodus'})
+DB = PG.connect({:dbname => 'volunteer_tracker'})
 
 get('/') do
   redirect to('/tracker')
@@ -30,7 +29,6 @@ post('/projects') do
   name = params[:project_name]
   project = Project.new({:name => name, :id => nil})
   project.save()
-  # binding.pry
   redirect to('/projects')
 end
 
