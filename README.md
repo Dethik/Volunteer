@@ -81,27 +81,49 @@ git clone https://github.com/Dethik/Volunteer
 </div>
 
 
-* Then after the process is completed use the command.
+* Within the chosen directory, use the command:
 
 ``` bash
 code .
 ```
 
-* Then type
+* Download Gem bundler with the command:
 
 ``` bash
 gem install bundler
 ```
 
-* then type
+* Install dependencies with the command:
+
 ``` bash
-bundle install
+bundle
 ```
 
-* Then from the terminal you can run logical code through the terminal by typing
-```bash
-ruby "file goes here (no quotes)"
+* Setup database with the following commands:
+
+``` bash
+createdb volunteer_tracker
 ```
+``` bash
+psql volunteer_tracker < database_backup.sql
+```
+``` bash
+createdb -T volunteer_tracker volunteer_tracker_test
+```
+
+* Run tests with the command:
+
+``` bash
+rspec
+```
+
+* View the site with the command:
+
+``` bash
+ruby app.rb
+```
+
+* Then, in your browser, navigate to `localhost:4567`
 
 ## Testing
 * This project was created using **test-driven development** (TDD).
