@@ -65,9 +65,9 @@ describe Project do
     it 'returns all volunteers for a specific project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project.save
-      volunteer1 = Volunteer.new({:title => 'Jasmine', :project_id => project.id, :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => project.id, :id => nil})
       volunteer1.save
-      volunteer2 = Volunteer.new({:title => 'Joe', :project_id => project.id, :id => nil})
+      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project.id, :id => nil})
       volunteer2.save
       expect(project.volunteers).to eq [volunteer1, volunteer2]
     end
@@ -78,7 +78,6 @@ describe Project do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project.save
       project.update('Teaching Ruby to Kids')
-      binding.pry
       expect(project.title).to eq 'Teaching Ruby to Kids'
     end
   end

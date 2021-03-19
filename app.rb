@@ -6,7 +6,7 @@ require './lib/volunteer'
 require './lib/project'
 also_reload 'lib/**/*.rb'
 
-DB = PG.connect({:dbname => 'volunteer_tracker'})
+DB = PG.connect({:dbname => 'volunteer_tracker', :password => 'epicodus'})
 
 get('/') do
   redirect to('/tracker')
@@ -26,8 +26,8 @@ get('/projects/new') do
 end
 
 post('/projects') do
-  name = params[:project_name]
-  project = Project.new({:name => name, :id => nil})
+  title = params[:project_title]
+  project = Project.new({:title => title, :id => nil})
   project.save()
   redirect to('/projects')
 end
@@ -44,7 +44,7 @@ end
 
 patch('/projects/:id') do
   @project = Project.find(params[:id].to_i)
-  @project.update(params[:name])
+  @project.update(params[:title])
   redirect to('/projects')
 end
 

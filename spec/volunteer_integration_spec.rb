@@ -15,7 +15,7 @@ describe 'the project creation path', {:type => :feature} do
     visit '/'
     click_on('Project List')
     click_on('Add a new Project')
-    fill_in('name', :with => 'Teaching Kids to Code')
+    fill_in('project_title', :with => 'Teaching Kids to Code')
     click_button('Add project')
     expect(page).to have_content('Teaching Kids to Code')
   end
@@ -28,11 +28,11 @@ describe 'the project update path', {:type => :feature} do
     visit '/'
     click_on('Project List')
     click_on('Add a new Project')
-    fill_in('name', :with => 'Teaching Kids to Code')
+    fill_in('project_title', :with => 'Teaching Kids to Code')
     click_button('Add project')
     click_link('Teaching Kids to Code')
     click_link('Edit Project')
-    fill_in('name', :with => 'Teaching Ruby to Kids')
+    fill_in('title', :with => 'Teaching Ruby to Kids')
     click_button('Update')
     expect(page).to have_content('Teaching Ruby to Kids')
   end

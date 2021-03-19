@@ -3,9 +3,8 @@ require "project"
 require "rspec"
 require "pry"
 require "pg"
-require "spec_pass"
 
-DB = PG.connect({:dbname => 'volunteer_tracker_test'})
+DB = PG.connect({:dbname => 'volunteer_tracker_test', :password => 'epicodus'})
 
 RSpec.configure do |config|
   config.after(:each) do
